@@ -107,7 +107,8 @@ public class PlayerController {
         return playerService.findById(id);
     }
 
-    @RequestMapping(value = "/players/{id}", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    //, produces = "application/json;charset=UTF-8"
+    @RequestMapping(value = "/players/{id}", method = RequestMethod.POST)
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public Player updatePlayer(@PathVariable("id") Long id,

@@ -157,12 +157,14 @@ public class Player {
     }
 
     public void setBanned(String bannedString) {
+        Boolean banned;
         try {
-            Boolean banned = Boolean.valueOf(bannedString);
-            setBanned(banned);
+            banned = Boolean.valueOf(bannedString);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            banned = false;
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
+        setBanned(banned);
     }
 
     @Override
