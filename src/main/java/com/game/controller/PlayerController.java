@@ -38,11 +38,11 @@ public class PlayerController {
     }
 
     @RequestMapping(value = "/players", method = RequestMethod.GET)
-    @ResponseBody
+//    @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public Iterable<Player> findAllPlayers(@RequestParam Map<String,String> allParams) {
 
-        System.out.println("allParams " + allParams.entrySet());
+//        System.out.println("allParams " + allParams.entrySet());
 
         // Pagination
         int pageSize = Integer.parseInt(allParams.getOrDefault("pageSize", "3"));
@@ -84,8 +84,8 @@ public class PlayerController {
 
     @RequestMapping(value = "/players/count", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public long count() {
-//        System.out.println("size = " + players.size());
+    public long count(@RequestParam Map<String,String> allParams) {
+        findAllPlayers(allParams);
         return playerService.countPlayers();
     }
 
