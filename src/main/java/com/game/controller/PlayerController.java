@@ -38,11 +38,8 @@ public class PlayerController {
     }
 
     @RequestMapping(value = "/players", method = RequestMethod.GET)
-//    @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public Iterable<Player> findAllPlayers(@RequestParam Map<String,String> allParams) {
-
-//        System.out.println("allParams " + allParams.entrySet());
 
         // Pagination
         int pageSize = Integer.parseInt(allParams.getOrDefault("pageSize", "3"));
@@ -90,7 +87,7 @@ public class PlayerController {
     }
 
     @RequestMapping(value = "/players", method = RequestMethod.POST)
-    @ResponseBody
+//    @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public Player createPlayer(@RequestBody Map<String,String> dataParams) {
         Player player = new Player();
@@ -109,7 +106,7 @@ public class PlayerController {
 
     //, produces = "application/json;charset=UTF-8"
     @RequestMapping(value = "/players/{id}", method = RequestMethod.POST)
-    @ResponseBody
+//    @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public Player updatePlayer(@PathVariable("id") Long id,
                                @RequestBody Map<String,String> requestParams) {

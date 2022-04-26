@@ -37,8 +37,6 @@ public class PlayerServiceImpl implements PlayerService{
 
     @Override
     public long countPlayers() {
-
-//        System.out.println("size = " + players.size());
         return players.getTotalElements();
     }
 
